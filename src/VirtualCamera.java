@@ -8,14 +8,15 @@ import java.util.List;
  */
 public class VirtualCamera extends PApplet {
 
-    private static final int WINDOW_WIDTH = 640;
-    private static final int WINDOW_HEIGHT = 480;
+    private static final int WINDOW_WIDTH = 1280;
+    private static final int WINDOW_HEIGHT = 720;
 
     public static void main(String args[]) {
         PApplet.main(VirtualCamera.class.getName());
     }
 
-    private Rectangle3D rectangle3D;
+    private Scene scene;
+    private UserInput userInput;
 
     @Override
     public void settings() {
@@ -24,67 +25,30 @@ public class VirtualCamera extends PApplet {
 
     @Override
     public void setup() {
-        rectangle3D = new Rectangle3D(0,0,100, 100);
+        scene = new Scene("");
+        userInput = new UserInput(scene);
     }
 
     @Override
     public void draw() {
-        translate(width/2, height/2, 0);
+        translate(width / 2, height / 2);
         background(0);
         stroke(255);
-        drawObject(rectangle3D);
+        text(userInput.getInputDescription(), -width/2 + 20, height/2 - 20);
+        drawScene();
 
-        if (keyPressed){
-            dispatchKey();
-        }
+
+
+        if (keyPressed) userInput.dispatchKey(key);
     }
 
-    private void dispatchKey() {
-        System.out.println("Key pressed: " + key);
-        switch (key){
-            case 'a':
-                rectangle3D.move2D(-1, 0);
-                break;
-
-            case 'w':
-                rectangle3D.move2D(0, -1);
-                break;
-
-            case 's':
-                rectangle3D.move2D(0, 1);
-                break;
-
-            case 'd':
-                rectangle3D.move2D(1, 0);
-                break;
-
-            case 'q':
-                rectangle3D.move3DY(1);
-                break;
-
-            case 'e':
-                rectangle3D.move3DY(-1);
-                break;
-
-            case 'r':
-                rectangle3D.move3DX(1);
-                break;
-
-            case 'f':
-                rectangle3D.move3DX(-1);
-                break;
-
-
-        }
-    }
-
-    private void drawObject(Rectangle3D rect) {
-        List<Point3D> points = rect.getPointsInDrawOrder();
-        for (int i = 1; i < points.size(); i += 2){
-            Point3D pointA = points.get(i - 1);
-            Point3D pointB = points.get(i);
-            line(pointA.getX(), pointA.getY(), pointA.getZ(),
-                    pointB.getX(), pointB.getY(), pointB.getZ());
+    private void drawScene() {
+        List<PointMatrix> points = scene.getPointsInDrawOrder();
+        for (int i = 1; i < points.size(); i += 2) {
+            PointMatrix pointA = points.get(i - 1);
+            PointMatrix pointB = points.get(i);
+            line(pointA.x(), pointA.y(), pointA.z(),
+                    pointB.x(), pointB.y(), pointB.z());
         }
     }
 }

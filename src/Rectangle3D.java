@@ -5,15 +5,20 @@ import java.util.List;
  * Created by Maciej Sady on 14-Oct-17.
  * VirtualCamera
  */
-public class Rectangle3D {
-    private final Point3D[] points = new Point3D[4];
-    private List<Point3D> drawOrder = new ArrayList<>();
+class Rectangle3D {
+    final List<PointMatrix> drawOrder = new ArrayList<>();
+    private final PointMatrix[] points = new PointMatrix[8];
 
-    Rectangle3D (int startX, int startY, int height, int width) {
-        points[0] = new Point3D(startX, startY, 0);
-        points[1] = new Point3D(startX + width, startY, 0);
-        points[2] = new Point3D(startX, startY + height, 0);
-        points[3] = new Point3D(startX + width, startY + height, 0);
+    Rectangle3D (int startX, int startY, int startZ, int height, int width, int length) {
+        points[0] = new PointMatrix(startX, startY, startZ);
+        points[1] = new PointMatrix(startX + width, startY, startZ);
+        points[2] = new PointMatrix(startX, startY + height, startZ);
+        points[3] = new PointMatrix(startX + width, startY + height, startZ);
+        points[4] = new PointMatrix(startX, startY, startZ + length);
+        points[5] = new PointMatrix(startX + width, startY, startZ + length);
+        points[6] = new PointMatrix(startX, startY + height, startZ + length);
+        points[7] = new PointMatrix(startX + width, startY + height, startZ + length);
+
         setDrawOrder();
     }
 
@@ -27,27 +32,40 @@ public class Rectangle3D {
         drawOrder.add(points[2]);
         drawOrder.add(points[2]);
         drawOrder.add(points[0]);
+
+        //Second rectangle
+        drawOrder.add(points[4]);
+        drawOrder.add(points[5]);
+        drawOrder.add(points[5]);
+        drawOrder.add(points[7]);
+        drawOrder.add(points[7]);
+        drawOrder.add(points[6]);
+        drawOrder.add(points[6]);
+        drawOrder.add(points[4]);
+
+        //Connections
+        drawOrder.add(points[0]);
+        drawOrder.add(points[4]);
+        drawOrder.add(points[1]);
+        drawOrder.add(points[5]);
+        drawOrder.add(points[3]);
+        drawOrder.add(points[7]);
+        drawOrder.add(points[2]);
+        drawOrder.add(points[6]);
+
+        if (drawOrder.size() % 2 != 0)
+            throw new IllegalStateException("Missing point in draw order!");
     }
 
-    public void move2D(int dx, int dy) {
-        for (Point3D p : points) {
-            p.move2D(dx, dy, 0);
+    void move(int dx, int dy, int tz) {
+        for (PointMatrix p : points) {
+            p.move(dx, dy, tz);
         }
     }
 
-    public void move3DX(int degree) {
-        for (Point3D p : points) {
-            p.move3DX(degree);
+    void tilt(float yaw, float roll, float pitch) {
+        for (PointMatrix p : points) {
+            p.tilt(yaw, roll, pitch);
         }
-    }
-
-    public void move3DY(int degree) {
-        for (Point3D p : points) {
-            p.move3DY(degree);
-        }
-    }
-
-    public List<Point3D> getPointsInDrawOrder() {
-        return drawOrder;
     }
 }
