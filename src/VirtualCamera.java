@@ -1,3 +1,4 @@
+import models.Point;
 import processing.core.PApplet;
 
 import java.util.List;
@@ -37,16 +38,14 @@ public class VirtualCamera extends PApplet {
         text(userInput.getInputDescription(), -width/2 + 20, height/2 - 20);
         drawScene();
 
-
-
         if (keyPressed) userInput.dispatchKey(key);
     }
 
     private void drawScene() {
-        List<PointMatrix> points = scene.getPointsInDrawOrder();
+        List<Point> points = scene.getPointsInDrawOrder();
         for (int i = 1; i < points.size(); i += 2) {
-            PointMatrix pointA = points.get(i - 1);
-            PointMatrix pointB = points.get(i);
+            Point pointA = points.get(i - 1);
+            Point pointB = points.get(i);
             line(pointA.x(), pointA.y(), pointA.z(),
                     pointB.x(), pointB.y(), pointB.z());
         }

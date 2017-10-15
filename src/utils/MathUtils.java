@@ -1,3 +1,5 @@
+package utils;
+
 /**
  * Created by Maciej Sady on 14-Oct-17.
  * VirtualCamera

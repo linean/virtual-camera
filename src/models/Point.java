@@ -1,3 +1,5 @@
+package models;
+
 import static processing.core.PApplet.cos;
 import static processing.core.PApplet.sin;
 
@@ -5,11 +7,11 @@ import static processing.core.PApplet.sin;
  * Created by Maciej Sady on 14-Oct-17.
  * VirtualCamera
  */
-class PointMatrix {
+public class Point {
     private static final int MATRIX_SIZE = 4;
     private float[] pointMatrix = new float[MATRIX_SIZE];
 
-    PointMatrix(int x, int y, int z) {
+    Point(int x, int y, int z) {
         pointMatrix[0] = x;
         pointMatrix[1] = y;
         pointMatrix[2] = z;
@@ -65,15 +67,15 @@ class PointMatrix {
         pointMatrix = result;
     }
 
-    float x() {
+    public float x() {
         return pointMatrix[0];
     }
 
-    float y() {
+    public float y() {
         return pointMatrix[1];
     }
 
-    float z() {
+    public float z() {
         return pointMatrix[2];
     }
 }
