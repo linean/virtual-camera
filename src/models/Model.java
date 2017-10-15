@@ -7,7 +7,7 @@ import java.util.List;
  * Created by Maciej Sady on 15-Oct-17.
  * VirtualCamera
  */
-public abstract class Model {
+abstract class Model {
     private final Point[] points;
     private final List<Point> drawOrder;
 
@@ -30,19 +30,19 @@ public abstract class Model {
         return order;
     }
 
-    public void move(int dx, int dy, int tz) {
+    void move(float dx, float dy, float tz) {
         for (Point p : points) {
             p.move(dx, dy, tz);
         }
     }
 
-    public void tilt(float yaw, float roll, float pitch) {
+    void tilt(float yaw, float roll, float pitch) {
         for (Point p : points) {
             p.tilt(yaw, roll, pitch);
         }
     }
 
-    public List<Point> getPointsInDrawOrder() {
+    List<Point> getPointsInDrawOrder() {
         return drawOrder;
     }
 }

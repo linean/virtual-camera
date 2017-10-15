@@ -6,7 +6,7 @@ package models;
  * VirtualCamera
  */
 class Rectangle extends Model {
-    public Rectangle(int startX, int startY, int startZ, int height, int width, int length) {
+    Rectangle(float startX, float startY, float startZ, float height, float width, float length) {
         super(new Point[]{
                 new Point(startX, startY, startZ),
                 new Point(startX + width, startY, startZ),
