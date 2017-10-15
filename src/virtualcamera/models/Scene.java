@@ -1,8 +1,9 @@
-package models;
+package virtualcamera.models;
+
+import org.codehaus.jackson.annotate.JsonProperty;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import static models.ModelFactory.ModelType.RECTANGLE;
 
 /**
  * Created by Maciej Sady on 14-Oct-17.
@@ -10,24 +11,14 @@ import static models.ModelFactory.ModelType.RECTANGLE;
  */
 public class Scene {
 
-    private final int zOffset;
-    private final List<Model> models = new ArrayList<>();
+    private final List<Model> models;
 
-    public Scene(String scenePlan, int zOffset) {
-        this.zOffset = zOffset;
-        //TODO create scene from plan
-        loadModels("");
-    }
-
-    private void loadModels(String plan) {
-        models.add(ModelFactory.createModel(RECTANGLE, 0, 0, 200 - zOffset, 100, 100, 100));
-        models.add(ModelFactory.createModel(RECTANGLE, -50, -50, -30 - zOffset, 30, 30, 30));
-        models.add(ModelFactory.createModel(RECTANGLE, 10, 10, 15 - zOffset, 80, 80, 80));
+    public Scene(@JsonProperty("models") List<Model> models) {
+        this.models = models;
     }
 
     public void reset() {
-        models.clear();
-        loadModels("");
+        //TODO - remove
     }
 
     public List<Point> getPointsInDrawOrder() {

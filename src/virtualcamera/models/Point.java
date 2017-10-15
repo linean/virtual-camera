@@ -1,6 +1,6 @@
-package models;
+package virtualcamera.models;
 
-import static utils.MatrixTransformationUtils.*;
+import static virtualcamera.utils.MatrixTransformationUtils.*;
 
 /**
  * Created by Maciej Sady on 14-Oct-17.

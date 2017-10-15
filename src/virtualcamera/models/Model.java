@@ -1,4 +1,7 @@
-package models;
+package virtualcamera.models;
+
+import org.codehaus.jackson.annotate.JsonSubTypes;
+import org.codehaus.jackson.annotate.JsonTypeInfo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +10,8 @@ import java.util.List;
  * Created by Maciej Sady on 15-Oct-17.
  * VirtualCamera
  */
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY)
+@JsonSubTypes({@JsonSubTypes.Type(value = Rectangle.class, name = "rectangle"), @JsonSubTypes.Type(value = Triangle.class, name = "triangle")})
 abstract class Model {
     private final Point[] points;
     private final List<Point> drawOrder;

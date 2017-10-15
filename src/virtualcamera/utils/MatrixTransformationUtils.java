@@ -1,4 +1,4 @@
-package utils;
+package virtualcamera.utils;
 
 import static processing.core.PApplet.cos;
 import static processing.core.PApplet.sin;

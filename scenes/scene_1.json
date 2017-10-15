@@ -1,0 +1,31 @@
+{
+  "models": [
+    {
+      "@type": "rectangle",
+      "start_x": 0,
+      "start_y": 0,
+      "start_z": 200,
+      "height": 100,
+      "width": 100,
+      "length": 100
+    },
+    {
+      "@type": "rectangle",
+      "start_x": 10,
+      "start_y": -50,
+      "start_z": 200,
+      "height": 600,
+      "width": 300,
+      "length": 900
+    },
+    {
+      "@type": "triangle",
+      "start_x": -50,
+      "start_y": 50,
+      "start_z": 0,
+      "height": 60,
+      "width": 60,
+      "length": 60
+    }
+  ]
+}

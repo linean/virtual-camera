@@ -1,7 +1,11 @@
-import models.Point;
-import models.Scene;
-import processing.core.PApplet;
+package virtualcamera;
 
+import org.codehaus.jackson.map.ObjectMapper;
+import processing.core.PApplet;
+import virtualcamera.models.Point;
+import virtualcamera.models.Scene;
+
+import java.io.File;
 import java.util.List;
 
 /**
@@ -9,10 +13,6 @@ import java.util.List;
  * VirtualCamera
  */
 public class VirtualCamera extends PApplet {
-
-    private static final int WINDOW_WIDTH = 1280;
-    private static final int WINDOW_HEIGHT = 720;
-    private static final int Z_OFFSET = 600;
 
     public static void main(String args[]) {
         PApplet.main(VirtualCamera.class.getName());
@@ -25,24 +25,33 @@ public class VirtualCamera extends PApplet {
 
     @Override
     public void settings() {
-        size(WINDOW_WIDTH, WINDOW_HEIGHT, P3D);
+        size(Config.WINDOW_WIDTH, Config.WINDOW_HEIGHT, P3D);
     }
 
     @Override
     public void setup() {
-        scene = new Scene("", Z_OFFSET);
+        loadScene();
         userInput = new UserInput(scene);
         backgroundColor = 0;
         sceneColor = 255;
     }
 
+    private void loadScene() {
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            scene = mapper.readValue(new File("scenes/scene_1.json"), Scene.class);
+        } catch (Exception e) {
+            throw new IllegalStateException("Scene file not found!");
+        }
+    }
+
     @Override
     public void draw() {
-        translate(width / 2, height / 2, Z_OFFSET);
+        translate(width / 2, height / 2, Config.Z_OFFSET);
         background(backgroundColor);
         stroke(sceneColor);
 
-        text(userInput.getInputDescription(), -width/2 + 20, height/2 - 20);
+        text(userInput.getInputDescription(), -width / 2 + 20, height / 2 - 20);
         drawScene();
 
         if (keyPressed) userInput.dispatchKey(key);

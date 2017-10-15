@@ -1,4 +1,6 @@
-import models.Scene;
+package virtualcamera;
+
+import virtualcamera.models.Scene;
 
 /**
  * Created by Maciej Sady on 14-Oct-17.
