@@ -20,12 +20,12 @@ class Rectangle extends Model {
         super(new Point[]{
                 new Point(startX, startY, startZ - Z_OFFSET),
                 new Point(startX + width, startY, startZ - Z_OFFSET),
-                new Point(startX + width, startY + height, startZ  -Z_OFFSET),
-                new Point(startX, startY + height, startZ - Z_OFFSET),
+                new Point(startX + width, startY - height, startZ  -Z_OFFSET),
+                new Point(startX, startY - height, startZ - Z_OFFSET),
                 new Point(startX, startY, startZ + length - Z_OFFSET),
                 new Point(startX + width, startY, startZ + length - Z_OFFSET),
-                new Point(startX + width, startY + height, startZ + length - Z_OFFSET),
-                new Point(startX, startY + height, startZ + length - Z_OFFSET),
+                new Point(startX + width, startY - height, startZ + length - Z_OFFSET),
+                new Point(startX, startY - height, startZ + length - Z_OFFSET),
         });
     }
 

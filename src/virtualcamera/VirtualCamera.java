@@ -2,6 +2,7 @@ package virtualcamera;
 
 import org.codehaus.jackson.map.ObjectMapper;
 import processing.core.PApplet;
+import processing.core.PFont;
 import virtualcamera.models.Point;
 import virtualcamera.models.Scene;
 
@@ -20,8 +21,6 @@ public class VirtualCamera extends PApplet {
 
     private Scene scene;
     private UserInput userInput;
-    private int backgroundColor;
-    private int sceneColor;
 
     @Override
     public void settings() {
@@ -31,9 +30,8 @@ public class VirtualCamera extends PApplet {
     @Override
     public void setup() {
         loadScene();
+        setFont();
         userInput = new UserInput(scene);
-        backgroundColor = 0;
-        sceneColor = 255;
     }
 
     private void loadScene() {
@@ -45,16 +43,23 @@ public class VirtualCamera extends PApplet {
         }
     }
 
+    private void setFont() {
+        PFont font = createFont("Arial", 12);
+        textFont(font);
+        textSize(12);
+    }
+
     @Override
     public void draw() {
+        background(userInput.getBackgroundColor());
+        stroke(userInput.getSceneColor());
+        fill(userInput.getSceneColor());
+        text(userInput.getInputDescription(), 5,height / 2 + 120);
         translate(width / 2, height / 2, Config.Z_OFFSET);
-        background(backgroundColor);
-        stroke(sceneColor);
-
-        text(userInput.getInputDescription(), -width / 2 + 20, height / 2 - 20);
         drawScene();
 
-        if (keyPressed) userInput.dispatchKey(key);
+        if (keyPressed) userInput.keyPressed(key);
+        else userInput.keyReleased();
     }
 
     private void drawScene() {

@@ -2,30 +2,163 @@
   "models": [
     {
       "@type": "rectangle",
-      "start_x": 0,
-      "start_y": 0,
-      "start_z": 200,
-      "height": 100,
-      "width": 100,
-      "length": 100
+      "start_x": -500,
+      "start_y": 100,
+      "start_z": -500,
+      "height": 10,
+      "width": 1000,
+      "length": 1000,
+      "description": "Podłoga"
     },
     {
       "@type": "rectangle",
-      "start_x": 10,
-      "start_y": -50,
-      "start_z": 200,
-      "height": 600,
-      "width": 300,
-      "length": 900
+      "start_x": -400,
+      "start_y": 100,
+      "start_z": -400,
+      "height": 150,
+      "width": 150,
+      "length": 250,
+      "description": "Budynek pierwszy - lewy górny róg"
     },
     {
       "@type": "triangle",
-      "start_x": -50,
-      "start_y": 50,
+      "start_x": -400,
+      "start_y": -50,
+      "start_z": -400,
+      "height": 50,
+      "width": 150,
+      "length": 250,
+      "description": "Budynek pierwszy - Dach"
+    },
+    {
+      "@type": "rectangle",
+      "start_x": -250,
+      "start_y": 100,
+      "start_z": -250,
+      "height": 110,
+      "width": 2,
+      "length": 50,
+      "description": "Budynek pierwszy - Drzwi"
+    },
+    {
+      "@type": "rectangle",
+      "start_x": -400,
+      "start_y": 100,
       "start_z": 0,
-      "height": 60,
-      "width": 60,
-      "length": 60
+      "height": 150,
+      "width": 150,
+      "length": 400,
+      "description": "Budynek drugi - lewy dolny róg"
+    },
+    {
+      "@type": "triangle",
+      "start_x": -400,
+      "start_y": -50,
+      "start_z": 0,
+      "height": 80,
+      "width": 150,
+      "length": 400,
+      "description": "Budynek drugi - Dach"
+    },
+    {
+      "@type": "rectangle",
+      "start_x": -250,
+      "start_y": 100,
+      "start_z": 150,
+      "height": 110,
+      "width": 2,
+      "length": 50,
+      "description": "Budynek drugi - Drzwi"
+    },
+    {
+      "@type": "rectangle",
+      "start_x": 0,
+      "start_y": 100,
+      "start_z": -400,
+      "height": 150,
+      "width": 300,
+      "length": 100,
+      "description": "Budynek trzeci - prawy górny róg"
+    },
+    {
+      "@type": "triangle",
+      "start_x": 0,
+      "start_y": -50,
+      "start_z": -400,
+      "height": 50,
+      "width": 300,
+      "length": 100,
+      "description": "Budynek trzeci - Dach"
+    },
+    {
+      "@type": "rectangle",
+      "start_x": 50,
+      "start_y": 100,
+      "start_z": -300,
+      "height": 110,
+      "width": 50,
+      "length": 2,
+      "description": "Budynek trzeci - Drzwi"
+    },
+    {
+      "@type": "rectangle",
+      "start_x": 250,
+      "start_y": 100,
+      "start_z": -200,
+      "height": 150,
+      "width": 100,
+      "length": 200,
+      "description": "Budynek czwarty - prawa strona"
+    },
+    {
+      "@type": "triangle",
+      "start_x": 250,
+      "start_y": -50,
+      "start_z": -200,
+      "height": 50,
+      "width": 100,
+      "length": 200,
+      "description": "Budynek czwarty - Dach"
+    },
+    {
+      "@type": "rectangle",
+      "start_x": 250,
+      "start_y": 100,
+      "start_z": -100,
+      "height": 110,
+      "width": -2,
+      "length": 50,
+      "description": "Budynek czwarty - Drzwi"
+    },
+    {
+      "@type": "rectangle",
+      "start_x": 0,
+      "start_y": 100,
+      "start_z": 100,
+      "height": 150,
+      "width": 300,
+      "length": 300,
+      "description": "Budynek piąty - prawy dolny róg"
+    },
+    {
+      "@type": "triangle",
+      "start_x": 0,
+      "start_y": -50,
+      "start_z": 100,
+      "height": 90,
+      "width": 300,
+      "length": 300,
+      "description": "Budynek piąty - Dach"
+    },
+    {
+      "@type": "rectangle",
+      "start_x": 0,
+      "start_y": 100,
+      "start_z": 150,
+      "height": 110,
+      "width": -2,
+      "length": 50,
+      "description": "Budynek piąty - Drzwi"
     }
   ]
 }

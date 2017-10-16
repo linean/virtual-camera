@@ -17,10 +17,6 @@ public class Scene {
         this.models = models;
     }
 
-    public void reset() {
-        //TODO - remove
-    }
-
     public List<Point> getPointsInDrawOrder() {
         List<Point> drawOrder = new ArrayList<>();
         for (Model model : models)
