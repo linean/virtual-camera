@@ -79,12 +79,12 @@ class UserInput {
 
             case 't':
             case 'T':
-                scene.moveY(-moveStep);
+                scene.moveY(moveStep);
                 break;
 
             case 'g':
             case 'G':
-                scene.moveY(moveStep);
+                scene.moveY(-moveStep);
                 break;
 
             case 'z':
@@ -127,17 +127,18 @@ class UserInput {
 
     String getInputDescription() {
         return "W - idź do przodu\n" +
-                "A - spójrz w prawo\n" +
-                "D - spójrz w lewo\n" +
-                "S - idź do tyłu\n" +
+                "A - spójrz w lewo\n" +
+                "D - spójrz w prawo\n" +
+                "S - idź w dół\n" +
                 "R - spójrz do góry\n" +
-                "F - spójrz na dół\n" +
+                "F - spójrz w dół\n" +
                 "T - idź do góry\n" +
                 "G - idź na dół\n" +
-                "Q - idź w prawo\n" +
-                "E - idź w lewo\n" +
-                "Z - obróć w prawo\n" +
-                "X - obróć w lewo\n" +
-                "C - zmień prędkość poruszania";
+                "Q - idź w lewo\n" +
+                "E - idź w prawo\n" +
+                "Z - obróć w lewo\n" +
+                "X - obróć w prawo\n" +
+                "C - zmień prędkość poruszania\n" +
+                "V - odwróć kolory";
     }
 }

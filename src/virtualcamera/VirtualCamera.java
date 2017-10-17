@@ -54,7 +54,7 @@ public class VirtualCamera extends PApplet {
         background(userInput.getBackgroundColor());
         stroke(userInput.getSceneColor());
         fill(userInput.getSceneColor());
-        text(userInput.getInputDescription(), 5,height / 2 + 120);
+        text(userInput.getInputDescription(), 5,height / 2 + 105);
         translate(width / 2, height / 2, Config.Z_OFFSET);
         drawScene();
 
