@@ -49,6 +49,12 @@ abstract class Model {
         }
     }
 
+    void changePerspective(float factor) {
+        for (Point p : points) {
+            p.changePerspective(factor);
+        }
+    }
+
     List<Point> getPointsInDrawOrder() {
         return drawOrder;
     }

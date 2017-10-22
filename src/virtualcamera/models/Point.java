@@ -37,6 +37,10 @@ public class Point {
         pointMatrix = applyMatrixTransformation(tiltMatrix, pointMatrix);
     }
 
+    void changePerspective(float factor) {
+        float[][] perspectiveMatrix = createPerspectiveMatrix(factor);
+        pointMatrix = applyMatrixTransformation(perspectiveMatrix, pointMatrix);
+    }
 
     public float x() {
         return pointMatrix[0];

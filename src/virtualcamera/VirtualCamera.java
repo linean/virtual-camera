@@ -52,17 +52,21 @@ public class VirtualCamera extends PApplet {
     @Override
     public void draw() {
         background(userInput.getBackgroundColor());
-        stroke(userInput.getSceneColor());
-        fill(userInput.getSceneColor());
-        text(userInput.getInputDescription(), 5,height / 2 + 105);
-        translate(width / 2, height / 2, Config.Z_OFFSET);
+        drawDescription();
         drawScene();
 
         if (keyPressed) userInput.keyPressed(key);
         else userInput.keyReleased();
     }
 
+    private void drawDescription() {
+        fill(userInput.getSceneColor());
+        text(userInput.getInputDescription(), 5,height / 2 + 65);
+    }
+
     private void drawScene() {
+        translate(width / 2, height / 2, Config.Z_OFFSET);
+        stroke(userInput.getSceneColor());
         List<Point> points = scene.getPointsInDrawOrder();
         for (int i = 1; i < points.size(); i += 2)
             drawLine(points.get(i - 1), points.get(i));

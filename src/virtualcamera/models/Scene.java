@@ -54,4 +54,9 @@ public class Scene {
         for (Model model : models)
             model.tilt(radians, 0, 0);
     }
+
+    public void changePerspective(float factor){
+        for (Model model : models)
+            model.changePerspective(factor);
+    }
 }

@@ -48,6 +48,15 @@ public class MatrixTransformationUtils {
         };
     }
 
+    public static float[][] createPerspectiveMatrix(float perspectiveFactor) {
+        return new float[][]{
+                {1, 0, 0, 0},
+                {0, 1, 0, 0},
+                {0, 0, perspectiveFactor, 0},
+                {0, 0, 0, 1}
+        };
+    }
+
     public static float[] applyMatrixTransformation(float[][] transformationMatrix, float[] pointMatrix) {
         float[] result = new float[pointMatrix.length];
         for (int i = 0; i < transformationMatrix.length; i++) {

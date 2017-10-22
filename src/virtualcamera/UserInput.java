@@ -7,12 +7,11 @@ import virtualcamera.models.Scene;
  * VirtualCamera
  */
 class UserInput {
-    private static final float MOVE_STEP = 2;
-    private static final float MOVE_STEP_FAST = 4;
-
+    private static final float MOVE_STEP = 3;
+    private static final float MOVE_STEP_FAST = 5;
     private static final float TILT_STEP = (float) Math.PI / 180;
     private static final float TILT_STEP_FAST = (float) Math.PI / 90;
-
+    private static final float PERSPECTIVE_FACTOR_STEP = 1 / 0.95f;
     private static final int WHITE = 255;
     private static final int BLACK = 0;
 
@@ -97,6 +96,18 @@ class UserInput {
                 scene.tiltRoll(-tiltStep);
                 break;
 
+            case 'y':
+            case 'Y':
+                isInputLocked = true;
+                scene.changePerspective(1 / PERSPECTIVE_FACTOR_STEP);
+                break;
+
+            case 'h':
+            case 'H':
+                isInputLocked = true;
+                scene.changePerspective(PERSPECTIVE_FACTOR_STEP);
+                break;
+
             case 'c':
             case 'C':
                 isInputLocked = true;
@@ -138,6 +149,8 @@ class UserInput {
                 "E - idź w prawo\n" +
                 "Z - obróć w lewo\n" +
                 "X - obróć w prawo\n" +
+                "Y - zmniejsz kąt widzenia\n" +
+                "H - zwiększ kąt widzenia\n" +
                 "C - zmień prędkość poruszania\n" +
                 "V - odwróć kolory";
     }
