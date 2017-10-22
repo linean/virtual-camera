@@ -3,6 +3,9 @@
     <output-path>$PROJECT_DIR$/out/artifacts/VirtualCamera_jar</output-path>
     <root id="archive" name="VirtualCamera.jar">
       <element id="module-output" name="VirtualCamera" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/jackson-jaxrs-1.9.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/jackson-core-asl-1.9.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/jackson-mapper-asl-1.9.0.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/core.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/gluegen-rt-natives-linux-aarch64.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/gluegen-rt-natives-linux-amd64.jar" path-in-jar="/" />
@@ -20,11 +23,6 @@
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/jogl-all-natives-windows-amd64.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/jogl-all-natives-windows-i586.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/jogl-all.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/jackson-jaxrs-1.9.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/jackson-core-asl-1.9.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/jackson-mapper-asl-1.9.0.jar" path-in-jar="/" />
-      <element id="library" level="project" name="processing_framework" />
-      <element id="library" level="project" name="org.codehaus.jackson:jackson-jaxrs:1.9.01" />
     </root>
   </artifact>
 </component>

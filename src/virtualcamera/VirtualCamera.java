@@ -1,12 +1,10 @@
 package virtualcamera;
 
-import org.codehaus.jackson.map.ObjectMapper;
 import processing.core.PApplet;
 import processing.core.PFont;
 import virtualcamera.models.Point;
 import virtualcamera.models.Scene;
 
-import java.io.File;
 import java.util.List;
 
 /**
@@ -29,18 +27,9 @@ public class VirtualCamera extends PApplet {
 
     @Override
     public void setup() {
-        loadScene();
         setFont();
+        scene = Scene.load("scenes/scene_1.json");
         userInput = new UserInput(scene);
-    }
-
-    private void loadScene() {
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-            scene = mapper.readValue(new File("scenes/scene_1.json"), Scene.class);
-        } catch (Exception e) {
-            throw new IllegalStateException("Scene file not found!");
-        }
     }
 
     private void setFont() {

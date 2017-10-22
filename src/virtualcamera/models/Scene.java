@@ -1,7 +1,9 @@
 package virtualcamera.models;
 
 import org.codehaus.jackson.annotate.JsonProperty;
+import org.codehaus.jackson.map.ObjectMapper;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,5 +60,15 @@ public class Scene {
     public void changePerspective(float factor){
         for (Model model : models)
             model.changePerspective(factor);
+    }
+
+    public static Scene load(String fileName) {
+        try {
+            InputStream sceneStream = ClassLoader.getSystemResourceAsStream(fileName);
+            return new ObjectMapper().readValue(sceneStream, Scene.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new IllegalStateException("Unable to load scene!");
+        }
     }
 }

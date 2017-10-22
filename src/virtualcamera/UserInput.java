@@ -140,7 +140,7 @@ class UserInput {
         return "W - idź do przodu\n" +
                 "A - spójrz w lewo\n" +
                 "D - spójrz w prawo\n" +
-                "S - idź w dół\n" +
+                "S - idź do tyłu\n" +
                 "R - spójrz do góry\n" +
                 "F - spójrz w dół\n" +
                 "T - idź do góry\n" +
